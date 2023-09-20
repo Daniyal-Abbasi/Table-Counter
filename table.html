@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+       body{
+        
+        padding-top:10px ;
+background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+;
+       }
+                   
+   #content{
+         border: 2px solid  #8BC6EC;
+
+         width: 200px;
+         height: 300px;
+         margin: auto;
+         margin-top: 20px;
+         text-align: center;
+         overflow: scroll;
+   }
+
+   .text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   .text input[type=text]{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid  #8BC6EC ;
+    background: transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+    outline: none;
+    /* pointer-events: none; */
+    
+
+   }
+
+.text input[type=text]:focus{
+    color : black ;
+    border-color: #8BC6EC;
+   }
+    </style>
+
+</head>
+<body>
+    <div class="text">
+       <label for="">Table Number</label>
+      <input type="text" placeholder="Table Number" id="number">
+       <label for="">Table Range</label>
+      <input type="text" placeholder="Table Range" id="range">
+      <input type="button" onclick="calculate()" value="Submit">
+      <input type="button" onclick="clearinput()" value="Clear">
+    </div>
+      <div id="content"></div>
+    
+
+  <script>
+       function clearinput(){
+    document.getElementById("number").value = '';
+    document.getElementById("range").value = '';
+    document.getElementById("para").value = '';
+    
+
+       }
+      
+      function calculate(){
+          let number = document.getElementById("number").value
+          let range = document.getElementById("range").value
+          var data = ""
+            for(var i = 1 ; i <= range; i++){
+                const result = i * number ; 
+
+                  data += 
+                  `
+                 <p id="para"> ${number} ×  ${i} =  ${result} </br></p>
+                  `
+            
+            
+            }
+            
+            document.getElementById("content").innerHTML=data
+                           
+                  
+        }           
+
+
+  </script>
+</body>
+</html>
